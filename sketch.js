@@ -13,18 +13,21 @@ var prompt3 = [];
 var prompt4 = [];
 var prompt5 = [];
 
+//create a new reference to Firebase
+var myFirebaseRef = new Firebase("https://boiling-torch-5856.firebaseio.com/");
+
 
 $(document).ready(function(){
 
   var inputField = $('#memory');
   
-  //when the user clicks inside the input field to start typing, clear it
-  inputField.click(function() {
-    if( inputField.attr("value") == "Enter your memory here" ) {
-        // Set it to an empty string
-        inputField.attr("value", "");
-    }
-   });
+  // //when the user clicks inside the input field to start typing, clear it
+  // inputField.click(function() {
+  //   if( inputField.attr("value") == "Enter your memory here" ) {
+  //       // Set it to an empty string
+  //       inputField.attr("value", "");
+  //   }
+  //  });
 
   //prompts 1 and 2 - create arrays of image sources
   for (var i = 1; i<10; i++) {
@@ -73,6 +76,7 @@ $(document).ready(function(){
     $('#container').css('padding', '0');
 
     memoryMatchImg.appendTo($('#container')); //add the image to the page
+    memoryMatchImg.hide();
 
     //change the source of the image depending on which prompt was selected
     switch (radioBttn) {
@@ -80,29 +84,45 @@ $(document).ready(function(){
         //pick a random image as the source
         var choice = [Math.floor(Math.random()*prompt1.length)]
         memoryMatchImg.attr("src", "images/" + prompt1[choice]);
+        memoryMatchImg.fadeIn(1500);
         console.log('prompt1');
         break;
       case "prompt2" :
         var choice = [Math.floor(Math.random()*prompt2.length)]
         memoryMatchImg.attr("src", "images/" + prompt2[choice]);
+        memoryMatchImg.fadeIn(1500);
         console.log('prompt2');
         break;
       case "prompt3" :
         var choice = [Math.floor(Math.random()*prompt3.length)]
         memoryMatchImg.attr("src", "images/" + prompt3[choice]);
+        memoryMatchImg.fadeIn(1500);
         console.log('prompt3');
         break;
       case "prompt4" :
         var choice = [Math.floor(Math.random()*prompt4.length)]
         memoryMatchImg.attr("src", "images/" + prompt4[choice]);
+        memoryMatchImg.fadeIn(1500);
         console.log('prompt4');
         break;
       case "prompt5" :
         var choice = [Math.floor(Math.random()*prompt5.length)]
         memoryMatchImg.attr("src", "images/" + prompt5[choice]);
+        memoryMatchImg.fadeIn(1500);
         console.log('prompt5');
         break;
     }
+
+    console.log(radioBttn, userMemory);
+
+    myFirebaseRef.set({
+      title: "Hello World!",
+      author: "Firebase",
+      memory: {
+        promptNum: radioBttn,
+        memory: userMemory,
+      }
+    });
 
   }
 

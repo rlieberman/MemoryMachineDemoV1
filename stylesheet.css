@@ -1,9 +1,10 @@
 body {
   padding:0px;
   margin:0;
-  font-family: Roboto Condensed;
+  font-family: Karla;
   letter-spacing: 1px;
   background:#fff;
+  font-size: 14px;
 }
 
 
@@ -34,22 +35,28 @@ body {
 
 h1 {
   font-weight: 800;
-  font-size:36px;
-  letter-spacing:3px;
+  font-size:39px;
+  letter-spacing:2px;
   text-align:center;
-  text-transform:uppercase;
+/*  text-transform:uppercase;*/
 }
 
-input[type=text] {
+p {
+  font-size:14px;
+  font-weight:bold;
+}
+
+textarea[type=text] {
   width: 85%;
   height:150px;
-  padding: 12px 20px;
+  padding: 20px;
   margin: 8px 0;
-  font-family:Roboto Condensed;
-  font-size: 14px;
+  font-family: Karla;
+  font-size:20px;
+  line-height:1.2em;
 }
 
-input[type=text]:focus {
+textarea[type=text]:focus {
   background-color: #ececec;
   border: 2px solid #000;
   outline:none;
@@ -62,11 +69,10 @@ button {
   background:black;
   margin-top:15px;
   margin-bottom:75px;
-  text-transform:uppercase;
+/*  text-transform:uppercase;*/
   font-size: 13px;
   color:white;
-  font-family:Roboto Condensed;
-  font-weight:800;
+/*  font-weight:bold;*/
   letter-spacing: 2px;
   outline:none;
 }
