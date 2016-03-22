@@ -1,8 +1,3 @@
-//TO DO
-//2. fade in the image, rather than have it just appear
-//3. figure out how to record people’s input into a spreadsheet to record what they said
-
-
 var radioBttn;
 var userMemory;
 
@@ -84,44 +79,44 @@ $(document).ready(function(){
         //pick a random image as the source
         var choice = [Math.floor(Math.random()*prompt1.length)]
         memoryMatchImg.attr("src", "images/" + prompt1[choice]);
-        memoryMatchImg.fadeIn(1500);
+        memoryMatchImg.fadeIn(2000);
         console.log('prompt1');
         break;
       case "prompt2" :
         var choice = [Math.floor(Math.random()*prompt2.length)]
         memoryMatchImg.attr("src", "images/" + prompt2[choice]);
-        memoryMatchImg.fadeIn(1500);
+        memoryMatchImg.fadeIn(2000);
         console.log('prompt2');
         break;
       case "prompt3" :
         var choice = [Math.floor(Math.random()*prompt3.length)]
         memoryMatchImg.attr("src", "images/" + prompt3[choice]);
-        memoryMatchImg.fadeIn(1500);
+        memoryMatchImg.fadeIn(2000);
         console.log('prompt3');
         break;
       case "prompt4" :
         var choice = [Math.floor(Math.random()*prompt4.length)]
         memoryMatchImg.attr("src", "images/" + prompt4[choice]);
-        memoryMatchImg.fadeIn(1500);
+        memoryMatchImg.fadeIn(2000);
         console.log('prompt4');
         break;
       case "prompt5" :
         var choice = [Math.floor(Math.random()*prompt5.length)]
         memoryMatchImg.attr("src", "images/" + prompt5[choice]);
-        memoryMatchImg.fadeIn(1500);
+        memoryMatchImg.fadeIn(2000);
         console.log('prompt5');
         break;
     }
 
     console.log(radioBttn, userMemory);
 
-    myFirebaseRef.set({
-      title: "Hello World!",
-      author: "Firebase",
-      memory: {
-        promptNum: radioBttn,
-        memory: userMemory,
-      }
+    //store the data on firebase, send it as an object
+    myFirebaseRef.push({
+      // title: "Hello World!",
+      // author: "Firebase",
+      promptNum: radioBttn,
+      memory: userMemory
+      
     });
 
   }
